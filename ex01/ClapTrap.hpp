@@ -6,20 +6,26 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:20 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/10 19:23:44 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/10 19:32:40 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+namespace Color
+{
+    const char* const RED   = "\033[31m";
+    const char* const GREEN = "\033[32m";
+    const char* const RESET = "\033[0m";
+}
+
 class ClapTrap{
-	private:
 	
+	protected:
 	std::string  name;
 	unsigned int HitPoints;
 	unsigned int EnergyPoints;
 	unsigned int AttackDamage;
 
 	public:
-	
 	//Orthodox Canonical Format Functions
 	ClapTrap();
 	ClapTrap(const ClapTrap& other);
@@ -35,7 +41,7 @@ class ClapTrap{
 	void beRepaired(unsigned int amount);
 
 	//Utility Functions
-	std::string getName();
+	std::string  getName();
 	unsigned int getAttack();
 	unsigned int getEnergy();
 	unsigned int getHitPoints();
