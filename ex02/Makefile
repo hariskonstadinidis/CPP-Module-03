@@ -6,14 +6,14 @@
 #    By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/12 13:55:01 by hkonstan          #+#    #+#              #
-#    Updated: 2026/09/11 16:49:59 by hkonstan         ###   ########.fr        #
+#    Updated: 2026/09/11 14:48:20 by hkonstan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 	ScavTrap
+NAME = 	FragTrap
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -g -O0
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -g
 
 BUILD_DIR = build
 
