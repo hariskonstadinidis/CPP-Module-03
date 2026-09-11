@@ -6,25 +6,27 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:14 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 14:37:47 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/11 18:37:44 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-// #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ClapTrap NPC1("NPC1");
-	ScavTrap newNPC1("newNPC");
-	ScavTrap newNPC2("newNPC2");
+	ClapTrap Clap1("Clap1");
+	ScavTrap Scav1("Scav1");
+	ScavTrap Scav2("Scav2");
+	FragTrap Frag1("Frag1");
 	
-	newNPC1.attack(NPC1.getName());
-	NPC1.takeDamage(newNPC1.getAttack());
-	NPC1.beRepaired(25);
-	newNPC1.attack(NPC1.getName());
-	newNPC1.attack(newNPC2.getName());
-	newNPC2.takeDamage(newNPC1.getAttack());
-	newNPC1.guardGate();
+	Scav1.attack(Clap1.getName());
+	Clap1.takeDamage(Scav1.getAttack());
+	Clap1.beRepaired(25);
+	Scav1.attack(Scav2.getName());
+	Scav2.takeDamage(Frag1.getAttack());
+	
+	Scav1.guardGate();
+	Frag1.highFiveGuys();
 }

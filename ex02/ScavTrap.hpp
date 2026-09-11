@@ -6,25 +6,24 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 18:46:41 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 17:34:11 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/11 18:22:16 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#pragma once
+# include "ClapTrap.hpp"
 
 class ScavTrap: public ClapTrap{
 	
 	public:
-	//Orthodox Canonical Format Functions
-	ScavTrap();
-	ScavTrap(const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	~ScavTrap();
+		ScavTrap();									// DefaultConstructor
+		ScavTrap(const ScavTrap& other);			// Copy constructor
+		ScavTrap& operator=(const ScavTrap& other); // Copy assignment operator
+		~ScavTrap();								// Destructor
 	
-	//My constructor
-	ScavTrap(std::string name);
+		ScavTrap(std::string name);					// Name constructor
 
-	//ScavTrap Action Functions
-	void attack(const std::string& target);
-	void guardGate();
+		// ScavTrap Action Functions
+		void attack(const std::string& target);
+		void guardGate();
 };

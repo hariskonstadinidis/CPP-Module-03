@@ -6,22 +6,22 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 18:46:43 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 17:51:54 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/11 18:09:52 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScavTrap.hpp"
 
-//Orthodox Canonical Format Functions
-ScavTrap::ScavTrap() :ClapTrap(){
+// Orthodox Canonical Format Functions
+ScavTrap::ScavTrap(): ClapTrap(){
 	std::cout << "ScavTrap Default Constructor called\n";
 	this->HitPoints = 100;
 	this->EnergyPoints = 50;
 	this->AttackDamage = 20; 
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) :ClapTrap(other){
+ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other){
 	std::cout << "ScavTrap Copy Constructor called\n";
 }
 
@@ -35,15 +35,15 @@ ScavTrap::~ScavTrap(){
 	std::cout << "ScavTrap Destructor called\n";
 }
 
-//My Constructor
-ScavTrap::ScavTrap(std::string name) :ClapTrap(name){
+// Name constructor
+ScavTrap::ScavTrap(std::string name): ClapTrap(name){
 	std::cout << "ScavTrap name Constructor called\n";
 	this->HitPoints = 100;
 	this->EnergyPoints = 50;
 	this->AttackDamage = 20;
 }
 
-//ScavTrap Action Functions
+// ScavTrap action Functions
 void ScavTrap::attack(const std::string& target){
 	if(this->HitPoints == 0){
 		std::cout << "ScavTrap" << this->name\
