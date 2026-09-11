@@ -6,7 +6,7 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:18 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 17:53:29 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/11 19:30:27 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 	if (this->HitPoints <= amount)
 	{
 		this->HitPoints = 0;
-		std::cout << "ClapTrap " << this->name << " DIED!\n"\
-		<< Color::RESET;
+		std::cout << "ClapTrap " << this->name << " DIED!\n";
 	}
 	else
 		this->HitPoints-= amount;

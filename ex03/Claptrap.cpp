@@ -6,7 +6,7 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:18 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 19:30:54 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/11 20:06:56 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "Claptrap Destructor called\n";
+	std::cout << "Claptrap Destructor called\n\n";
 }
 
 //My Constructor
@@ -54,16 +54,16 @@ ClapTrap::ClapTrap(std::string name){
 //Action Functions
 void ClapTrap::attack(const std::string& target){
 	if(this->HitPoints == 0){
-		std::cout << "ClapTrap" << this->name\
+		std::cout << this->name\
 		<< " is dead so it can't attack!\n";
 		return;
 	}
 	if (this->EnergyPoints < 1){
-		std::cout << "ClapTrap" << this->name\
+		std::cout << this->name\
 		<< " run out of Energy Points so it cant attack!\n";
 		return;
 	}
-	std::cout << "ClapTrap " << this->name <<  " attacks " << target\
+	std::cout << this->name <<  " attacks " << target\
 	 << " causing " << this->AttackDamage<< " points of damage!\n"\
 	;
 }
@@ -73,12 +73,12 @@ void ClapTrap::takeDamage(unsigned int amount){
 		std::cout << this->name << " is already dead!\n";
 		return;
 	}
-	std::cout << "ClapTrap " << this->name << " took " << amount\
+	std::cout << this->name << " took " << amount\
 	<< " of damage!\n";
 	if (this->HitPoints <= amount)
 	{
 		this->HitPoints = 0;
-		std::cout << "ClapTrap " << this->name << " DIED!\n";
+		std::cout << this->name << " DIED!\n";
 	}
 	else
 		this->HitPoints-= amount;
@@ -95,25 +95,30 @@ void ClapTrap::beRepaired(unsigned int amount){
 		<< " is DEAD so it can't get repaired!\n";
 		return;
 	}
-	std::cout << "ClapTrap " << this->name << " repaired " << amount\
+	std::cout << this->name << " repaired " << amount\
 	<< " of damage!\n";
 	this->EnergyPoints--;
 	this->HitPoints+= amount;
 }
 
 //Utility Functions
-std::string ClapTrap::getName(){
+std::string ClapTrap::getName() const{
 	return this->name;
 }
 
-unsigned int ClapTrap::getAttack(){
+unsigned int ClapTrap::getAttack() const{
 	return this->AttackDamage;
 }
 
-unsigned int ClapTrap::getEnergy(){
+unsigned int ClapTrap::getEnergy() const{
 	return this->EnergyPoints;
 }
 
-unsigned int ClapTrap::getHitPoints(){
+unsigned int ClapTrap::getHitPoints() const{
 	return this->HitPoints;
+}
+
+void ClapTrap::showInfo() const{
+	std::cout << "My HP is: " << this->getHitPoints() << ", Energy is: "\
+	<< this->getEnergy() << ", Atck Dmg is: " << this->getAttack() << ".\n";
 }

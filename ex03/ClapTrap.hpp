@@ -6,11 +6,12 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:20 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 18:50:58 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/11 19:52:29 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+# include <iostream>
 
 class ClapTrap{
 	
@@ -36,8 +37,9 @@ class ClapTrap{
 	void beRepaired(unsigned int amount);
 
 	//Utility Functions
-	std::string  getName();
-	unsigned int getAttack();
-	unsigned int getEnergy();
-	unsigned int getHitPoints();
+	std::string  getName() const;
+	unsigned int getAttack() const;
+	unsigned int getEnergy() const;
+	unsigned int getHitPoints() const;
+	void		 showInfo() const;
 };
