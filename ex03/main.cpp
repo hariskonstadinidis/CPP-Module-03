@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:14 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 20:05:35 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:26:35 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,38 @@ int main()
 	DiamondTrap Diamond1("Diamond1");
 	std::cout << "\n";
 	
+	Clap1.showInfo();
 	Scav1.attack(Clap1.getName());
 	Clap1.takeDamage(Scav1.getAttack());
 	Clap1.showInfo();
 	std::cout << "\n";
+	
+	Scav2.showInfo();
 	Frag1.attack(Scav2.getName());
 	Scav2.takeDamage(Frag1.getAttack());
 	Scav2.showInfo();
 	std::cout << "\n";
+	
+	Frag1.showInfo();
 	Scav1.attack(Frag1.getName());
 	Frag1.takeDamage(Scav1.getAttack());
 	Frag1.showInfo();
 	std::cout << "\n";
+	
+	Frag1.showInfo();
 	Diamond1.attack(Frag1.getName());
 	Frag1.takeDamage(Diamond1.getAttack());
 	Frag1.showInfo();
 	std::cout << "\n";
+	
+	// Diamond1.showInfo();
+	// for (int i = 0; i < 51; i++)
+	// 	Diamond1.ClapTrap::beRepaired(10);
+	// Diamond1.showInfo();
+	// std::cout << "\n";
+	
 	Diamond1.whoAmI();
 	Diamond1.showInfo();
 	std::cout << "\n";
+	
 }

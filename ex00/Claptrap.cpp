@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Claptrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:18 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/10 19:23:57 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/13 17:26:30 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //Orthodox Canonical Format Functions
 ClapTrap::ClapTrap(){
-	std::cout << "Default Constructor called\n";
+	std::cout << "Claptrap Default Constructor called for NoName\n";
 	this->name = "NoName";
 	this->HitPoints = 10;
 	this->EnergyPoints = 10;
@@ -23,12 +23,12 @@ ClapTrap::ClapTrap(){
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other){
-	std::cout << "Copy Constructor called\n";
+	std::cout << "Copy Claptrap Constructor called for " << this->name << "\n";
 	*this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other){
-	std::cout << "Copy operator called\n";
+	std::cout << "Copy Claptrap operator called for " << this->name << "\n";
 	if (this != &other){
 		this->name = other.name;
 		this->HitPoints = other.HitPoints;
@@ -39,12 +39,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "Destructor called\n";
+	std::cout << "Claptrap Destructor called for " << this->name << "\n";
 }
 
 //My Constructor
 ClapTrap::ClapTrap(std::string name){
-	std::cout << "name Constructor called\n";
+	std::cout << "Claptrap name Constructor called for " << name << "\n";
 	this->name = name;
 	this->HitPoints = 10;
 	this->EnergyPoints = 10;
@@ -54,52 +54,72 @@ ClapTrap::ClapTrap(std::string name){
 //Action Functions
 void ClapTrap::attack(const std::string& target){
 	if(this->HitPoints == 0){
-		std::cout << this->name << " is dead so it can't attack!\n";
+		std::cout << "ClapTrap " << this->name\
+		<< " is dead so it can't attack!\n";
 		return;
 	}
 	if (this->EnergyPoints < 1){
-		std::cout << this->name << " run out of Energy Points so it cant attack!\n";
+		std::cout << "ClapTrap " << this->name\
+		<< " run out of Energy Points so it cant attack!\n";
 		return;
 	}
 	std::cout << "ClapTrap " << this->name <<  " attacks " << target\
-	 << " causing " << this->AttackDamage<< " points of damage!\n";
+	<< " causing " << this->AttackDamage<< " points of damage!\n";
+	this->EnergyPoints--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->HitPoints == 0){
-		std::cout << this->name << " is already dead!\n";
+		std::cout << "ClapTrap " << this->name << " is already dead!\n";
 		return;
 	}
-	std::cout << "ClapTrap " << this->name << " took " << amount << " of damage!\n";
+	std::cout << "ClapTrap " << this->name << " took " << amount\
+	<< " points of damage!\n";
 	if (this->HitPoints <= amount)
+	{
 		this->HitPoints = 0;
+		std::cout << "ClapTrap " << this->name << " DIED!\n";
+	}
 	else
 		this->HitPoints-= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
 	if (this->EnergyPoints == 0){
-		std::cout << this->name << " run out of Energy Points so it can't get repaired!\n";
+		std::cout << "ClapTrap " << this->name\
+		<< " run out of Energy Points so it can't get repaired!\n";
 		return;
 	}
-	std::cout << "ClapTrap " << this->name << " repaired " << amount << " of damage!\n";
+	if (this->HitPoints == 0){
+		std::cout << "ClapTrap " << this->name\
+		<< " is DEAD so it can't get repaired!\n";
+		return;
+	}
+	std::cout << "ClapTrap " << this->name << " repaired " << amount\
+	<< " of damage!\n";
 	this->EnergyPoints--;
 	this->HitPoints+= amount;
 }
 
 //Utility Functions
-std::string ClapTrap::getName(){
+std::string ClapTrap::getName() const{
 	return this->name;
 }
 
-unsigned int ClapTrap::getAttack(){
+unsigned int ClapTrap::getAttack() const{
 	return this->AttackDamage;
 }
 
-unsigned int ClapTrap::getEnergy(){
+unsigned int ClapTrap::getEnergy() const{
 	return this->EnergyPoints;
 }
 
-unsigned int ClapTrap::getHitPoints(){
+unsigned int ClapTrap::getHitPoints() const{
 	return this->HitPoints;
+}
+
+void ClapTrap::showInfo() const{
+	std::cout << "My name is: " << this->getName()\
+	<< ", my HP is: " << this->getHitPoints() << ", Energy is: "\
+	<< this->getEnergy() << ", Atck Dmg is: " << this->getAttack() << ".\n";
 }
