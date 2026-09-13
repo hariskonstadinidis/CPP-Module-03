@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:53:04 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 20:13:33 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:20:41 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap: virtual public FragTrap, virtual public ScavTrap{
+class DiamondTrap:  public FragTrap,  public ScavTrap{
 	private:
 		std::string name;
 		
@@ -27,5 +27,7 @@ class DiamondTrap: virtual public FragTrap, virtual public ScavTrap{
 		DiamondTrap(std::string name);					  // Name constructor
 
 		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 		void whoAmI();
 };

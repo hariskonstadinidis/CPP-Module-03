@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:24:20 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 18:50:58 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:09:34 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ class ClapTrap{
 	void beRepaired(unsigned int amount);
 
 	//Utility Functions
-	std::string  getName();
-	unsigned int getAttack();
-	unsigned int getEnergy();
-	unsigned int getHitPoints();
+	std::string  getName() const;
+	unsigned int getAttack() const;
+	unsigned int getEnergy() const;
+	unsigned int getHitPoints() const;
+	void		 showInfo() const;
 };

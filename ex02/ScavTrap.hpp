@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 18:46:41 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/09/11 18:22:16 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:24:32 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # include "ClapTrap.hpp"
 
 class ScavTrap: public ClapTrap{
-	
+	private:
+		unsigned const int _HitPoints = 100;
+		unsigned const int _EnergyPoints = 50;
+		unsigned const int _AttackDamage = 20;
+
 	public:
 		ScavTrap();									// DefaultConstructor
 		ScavTrap(const ScavTrap& other);			// Copy constructor
@@ -25,5 +29,7 @@ class ScavTrap: public ClapTrap{
 
 		// ScavTrap Action Functions
 		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 		void guardGate();
 };
